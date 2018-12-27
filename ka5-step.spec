@@ -1,19 +1,32 @@
-%define		kdeappsver	18.04.0
-%define		qtver		5.3.2
+%define		kdeappsver	18.12.0
+%define		qtver		5.9.0
 %define		kaname		step
 Summary:	step
 Name:		ka5-%{kaname}
-Version:	18.04.0
+Version:	18.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	91a3bf425879d9db49f9ea09c8b08462
+# Source0-md5:	3e75a86f379d69ce8a2804b52c08be13
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5OpenGL-devel
+BuildRequires:	Qt5Svg-devel
+BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt5Widgets-devel >= 5.11.1
+BuildRequires:	Qt5Xml-devel
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	eigen3
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	eigen3 >= 3.2.2
+BuildRequires:	gettext-devel
+BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
+BuildRequires:	kf5-kconfig-devel
+BuildRequires:	kf5-kcrash-devel
+BuildRequires:	kf5-khtml-devel
+BuildRequires:	kf5-kiconthemes-devel
+BuildRequires:	kf5-knewstuff-devel
+BuildRequires:	kf5-kplotting-devel
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -22,7 +35,38 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-step.
+Step is an interactive physical simulator. It allows you to explore
+the physical world through simulations.
+
+Features
+
+- Classical mechanical simulation in two dimensions
+- Particles, springs with damping, gravitational and coulomb forces
+- Rigid bodies
+- Collision detection (currently only discrete) and handling
+- Soft (deformable) bodies simulated as user-editable
+  particles-springs system, sound waves
+- Molecular dynamics (currently using Lennard-Jones potential): gas
+  and liquid, condensation and evaporation, calculation of macroscopic
+  quantities and their variances
+- Units conversion and expression calculation: you can enter something
+  like "(2 days + 3 hours) * 80 km/h" and it will be accepted as
+  distance value (requires libqalculate)
+- Errors calculation and propagation: you can enter values like "1.3 ±
+  0.2" for any property and errors for all dependent properties will be
+  calculated using statistical formulas
+- Solver error estimation: errors introduced by the solver is
+  calculated and added to user-entered errors
+- Several different solvers: up to 8th order, explicit and implicit,
+  with or without adaptive timestep (most of the solvers require the GSL
+  library)
+- Controller tool to easily control properties during simulation (even
+  with custom keyboard shortcuts)
+- Tools to visualize results: graph, meter, tracer
+- Context information for all objects, integrated wikipedia browser
+- Collection of example experiments, more can be downloaded with
+  KNewStuff
+- Integrated tutorials
 
 %prep
 %setup -q -n %{kaname}-%{version}

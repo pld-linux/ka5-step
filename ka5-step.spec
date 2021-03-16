@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		step
 Summary:	step
 Name:		ka5-%{kaname}
-Version:	19.04.1
-Release:	2
+Version:	20.12.3
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	3798c08f765f8155bcb74625ae978c43
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	c4bd71aa0c339d447a7f17d6a1359efd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -94,7 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/step.knsrc
 %attr(755,root,root) %{_bindir}/step
 %{_desktopdir}/org.kde.step.desktop
 %{_datadir}/config.kcfg/step.kcfg
@@ -131,3 +130,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kxmlgui5/step
 %{_datadir}/metainfo/org.kde.step.appdata.xml
 %{_datadir}/step
+%{_datadir}/mime/packages/org.kde.step.xml
+%{_datadir}/knsrcfiles/step.knsrc

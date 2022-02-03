@@ -1,15 +1,15 @@
-%define		kdeappsver	21.12.1
+%define		kdeappsver	21.12.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		step
 Summary:	step
 Name:		ka5-%{kaname}
-Version:	21.12.1
+Version:	21.12.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	a5d130ca1e5ab2acf6684852c3fb87c7
+# Source0-md5:	103dec65a7e89f85f50f837b82f65041
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1

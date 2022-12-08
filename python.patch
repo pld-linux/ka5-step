@@ -1,0 +1,12 @@
+diff -up step-22.12.0/step/data/CMakeLists.txt.ddd step-22.12.0/step/data/CMakeLists.txt
+--- step-22.12.0/step/data/CMakeLists.txt.ddd
++++ step-22.12.0/step/data/CMakeLists.txt
+@@ -37,7 +37,7 @@
+         separate_arguments(_extractxml_args_copy)
+         file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${_lang})
+         add_custom_command(OUTPUT ${_xmlfile_tr}
+-            COMMAND ${PYTHON_EXECUTABLE} ${EXTRACTXML_EXECUTABLE} --translate --mo-file=${_mo_file} --output-dir=${CMAKE_CURRENT_BINARY_DIR}/${_lang} ${_extractxml_args_copy} ${_xmlfile}
++            COMMAND ${EXTRACTXML_EXECUTABLE} --translate --mo-file=${_mo_file} --output-dir=${CMAKE_CURRENT_BINARY_DIR}/${_lang} ${_extractxml_args_copy} ${_xmlfile}
+             WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+             DEPENDS ${_xmlfile} ${_mo_file}
+         )

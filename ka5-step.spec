@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.1
+%define		kdeappsver	22.12.2
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		step
 Summary:	step
 Name:		ka5-%{kaname}
-Version:	22.12.1
+Version:	22.12.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	5f0bf603256ab9b9e06266fe26c28674
+# Source0-md5:	c32ff5e436ceede5b86a27d0bc629344
 Patch0:		python.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}

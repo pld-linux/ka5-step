@@ -27,16 +27,22 @@ BuildRequires:	Qt5Xml-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	eigen3 >= 3.2.2
 BuildRequires:	gettext-devel
+BuildRequires:	gsl-devel >= 1.8
 BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
 BuildRequires:	kf5-kconfig-devel >= %{kframever}
 BuildRequires:	kf5-kcrash-devel >= %{kframever}
-BuildRequires:	kf5-khtml-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
 BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
 BuildRequires:	kf5-knewstuff-devel >= %{kframever}
 BuildRequires:	kf5-kplotting-devel >= %{kframever}
+BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	libqalculate-devel >= 0.9.5
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -129,6 +135,7 @@ ctest --test-dir build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde --with-qm

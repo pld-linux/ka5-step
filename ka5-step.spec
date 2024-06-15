@@ -6,7 +6,8 @@
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		step
-Summary:	step
+Summary:	Interactive physical simulator
+Summary(pl.UTF-8):	Interaktywny symulator fizyczny
 Name:		ka5-%{kaname}
 Version:	23.08.5
 Release:	3
@@ -45,10 +46,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Step is an interactive physical simulator. It allows you to explore
 the physical world through simulations.
 
-Features
-
+Features:
 - Classical mechanical simulation in two dimensions
-- Particles, springs with damping, gravitational and coulomb forces
+- Particles, springs with damping, gravitational and Coulomb forces
 - Rigid bodies
 - Collision detection (currently only discrete) and handling
 - Soft (deformable) bodies simulated as user-editable
@@ -59,7 +59,7 @@ Features
 - Units conversion and expression calculation: you can enter something
   like "(2 days + 3 hours) * 80 km/h" and it will be accepted as
   distance value (requires libqalculate)
-- Errors calculation and propagation: you can enter values like "1.3 ±
+- Errors calculation and propagation: you can enter values like "1.3 +/-
   0.2" for any property and errors for all dependent properties will be
   calculated using statistical formulas
 - Solver error estimation: errors introduced by the solver is
@@ -75,6 +75,39 @@ Features
   KNewStuff
 - Integrated tutorials
 
+%description -l pl.UTF-8
+Step to interaktywny symulator fizyczny. Pozwala eksplorować świat
+fizyczny poprzez symulacje.
+
+Możliwości:
+- klasyczna symulacja mechaniczna w dwóch wymiarach
+- cząsteczki, sprężyny z tłumieniem, siły grawitacyjne i Coulomba
+- bryły sztywne
+- wykrywanie i obsługa kolizji (obecnie tylko dyskretnych)
+- ciała miękkie (deformowalne) symulowane jako modyfikowalny przez
+  użytkownika system cząstek-sprężyn, fale dźwiękowe
+- dynamika molekularna (obecnie przy użyciu potencjału
+  Lennarda-Jonesa): gazy i ciecze, kondensacja i parowanie, obliczenia
+  wielkości kakroskopowych i ich wariancji
+- przeliczanie jednostek o obliczanie wyrażeń: można wpisywać np.
+  "(2 days + 3 hours) * 80 km/h" i zostanie to przyjęte jako wartość
+  odległości (wymaga libqalculate)
+- rachunek i propagowanie błędów: można wpisać np. "1.3 +/- 0.2" dla
+  dowolnej własności, a błędy dla własności zależnych zostaną
+  wyliczone przy użyciu wzorów statystycznych
+- estymacja błędów rozwiązania: wprowadzane błędy są wyliczane i
+  dodawane do błędów podanych przez użytkownika
+- kilka różnych metod rozwiązywania: do 8. rzędu, jawna i niejawna, z
+  lub bez kroku adaptacyjnego (większość wymaga biblioteki GSL)
+- narzędzie kontrolera do sterowania własnościami podczas symulacji
+  (nawet z własnymi skrótami klawiaturowymi)
+- narzędzia do wizualizacji wyników: wykres, miernik, śledzenie
+- informacje kontekstowe dla wszystkich obiektów, zintegrowana
+  przeglądarka wikipedii
+- zbiór przykładowych eksperymentów, więcej można pobrać przez
+  KNewStuff
+- zintegrowane instrukcje
+
 %prep
 %setup -q -n %{kaname}-%{version}
 %patch0 -p1
@@ -86,6 +119,7 @@ Features
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+
 %ninja_build -C build
 
 %if %{with tests}

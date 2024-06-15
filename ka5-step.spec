@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# testing
 
 %define		kdeappsver	23.08.5
 %define		kframever	5.94.0
@@ -123,7 +123,8 @@ Możliwości:
 	-B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
+	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
+	-DKDE_INSTALL_SYSCONFDIR=%{_sysconfdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 
 %ninja_build -C build
